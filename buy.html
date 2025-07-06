@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now - Simplest Guide to Public Speaking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://via.placeholder.com/150x50/FFB400/001F54?text=LOGO" alt="Logo" class="logo-img">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about-book.html" class="nav-link">About Book</a>
+                <a href="about-author.html" class="nav-link">About Author</a>
+                <a href="read-online.html" class="nav-link">Read Online</a>
+                <a href="buy.html" class="nav-link active">Buy Now</a>
+                <a href="testimonials.html" class="nav-link">Testimonials</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Buy the Book</h1>
+            <p>Get your copy of the Simplest Guide to Public Speaking</p>
+        </div>
+    </section>
+
+    <!-- Purchase Options -->
+    <section class="purchase-options">
+        <div class="container">
+            <div class="purchase-content">
+                <div class="book-showcase">
+                    <img src="https://via.placeholder.com/400x600/D7263D/FFFFFF?text=SIMPLEST+GUIDE+TO+PUBLIC+SPEAKING" alt="Book Cover" class="book-cover-purchase">
+                    <div class="book-highlights">
+                        <h3>What You Get:</h3>
+                        <ul class="highlights-list">
+                            <li><i class="fas fa-check"></i> 250 pages of expert guidance</li>
+                            <li><i class="fas fa-check"></i> 12 comprehensive chapters</li>
+                            <li><i class="fas fa-check"></i> Practical exercises and examples</li>
+                            <li><i class="fas fa-check"></i> Bonus worksheets and templates</li>
+                            <li><i class="fas fa-check"></i> Lifetime access to digital version</li>
+                            <li><i class="fas fa-check"></i> Money-back guarantee</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="purchase-details">
+                    <h2>Simplest Guide to Public Speaking</h2>
+                    <p class="book-author">by Favour Ebi Dakoru</p>
+
+                    <div class="pricing-section">
+                        <div class="price-card featured">
+                            <div class="price-header">
+                                <h3>Digital Edition</h3>
+                                <p class="price-description">PDF + EPUB formats</p>
+                            </div>
+                            <div class="price-amount">
+                                <span class="currency">₦</span>
+                                <span class="amount">5,000</span>
+                            </div>
+                            <div class="price-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Instant download</li>
+                                    <li><i class="fas fa-check"></i> PDF and EPUB formats</li>
+                                    <li><i class="fas fa-check"></i> Read on any device</li>
+                                    <li><i class="fas fa-check"></i> Bonus worksheets</li>
+                                    <li><i class="fas fa-check"></i> Lifetime access</li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-primary purchase-btn" onclick="redirectToPaystack('digital')">
+                                <i class="fas fa-shopping-cart"></i> Buy Digital Edition
+                            </button>
+                        </div>
+
+                        <div class="price-card">
+                            <div class="price-header">
+                                <h3>Print Edition</h3>
+                                <p class="price-description">Physical book + Digital copy</p>
+                            </div>
+                            <div class="price-amount">
+                                <span class="currency">₦</span>
+                                <span class="amount">8,000</span>
+                            </div>
+                            <div class="price-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Physical paperback</li>
+                                    <li><i class="fas fa-check"></i> Free digital copy</li>
+                                    <li><i class="fas fa-check"></i> Nationwide delivery</li>
+                                    <li><i class="fas fa-check"></i> Bonus materials</li>
+                                    <li><i class="fas fa-check"></i> Author's signature</li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-secondary purchase-btn" onclick="redirectToPaystack('print')">
+                                <i class="fas fa-book"></i> Buy Print Edition
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="purchase-info">
+                        <div class="info-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Secure Payment</h4>
+                                <p>Your payment is processed securely through Paystack</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-download"></i>
+                            <div>
+                                <h4>Instant Access</h4>
+                                <p>Download your digital copy immediately after purchase</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-undo"></i>
+                            <div>
+                                <h4>Money-back Guarantee</h4>
+                                <p>30-day money-back guarantee if you're not satisfied</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Preview -->
+    <section class="testimonials-preview">
+        <div class="container">
+            <h2 class="section-title">What Readers Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"This book completely transformed my approach to public speaking. The techniques are simple yet incredibly effective."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Marketing Manager</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"As someone who was terrified of speaking in public, this book gave me the confidence I needed. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <strong>Michael Chen</strong>
+                        <span>Software Engineer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The practical exercises and real-world examples make this book invaluable for anyone looking to improve their speaking skills."</p>
+                    <div class="testimonial-author">
+                        <strong>Dr. Emily Rodriguez</strong>
+                        <span>University Professor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-link">
+                <a href="testimonials.html" class="btn btn-outline">Read More Testimonials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What formats are available?</h3>
+                    <p>The digital edition comes in both PDF and EPUB formats, compatible with all devices and e-readers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I access my digital copy?</h3>
+                    <p>After successful payment, you'll receive an email with download links within 5 minutes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a money-back guarantee?</h3>
+                    <p>Yes, we offer a 30-day money-back guarantee if you're not completely satisfied with your purchase.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long does print delivery take?</h3>
+                    <p>Print editions are delivered within 5-7 business days within Nigeria, and 10-14 days internationally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Simplest Guide to Public Speaking</h3>
+                    <p>Transform your communication skills with proven techniques and expert guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about-book.html">About Book</a></li>
+                        <li><a href="about-author.html">About Author</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Favour Ebi Dakoru. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Paystack Integration
+        function redirectToPaystack(edition) {
+            let paystackUrl;
+            
+            if (edition === 'digital') {
+                paystackUrl = 'https://paystack.com/pay/simplest-guide-digital';
+            } else if (edition === 'print') {
+                paystackUrl = 'https://paystack.com/pay/simplest-guide-print';
+            }
+            
+            // Show loading state
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            button.disabled = true;
+            
+            // Simulate redirect delay
+            setTimeout(() => {
+                window.open(paystackUrl, '_blank');
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

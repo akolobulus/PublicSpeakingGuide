@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Online - Simplest Guide to Public Speaking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-select">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://via.placeholder.com/150x50/FFB400/001F54?text=LOGO" alt="Logo" class="logo-img">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about-book.html" class="nav-link">About Book</a>
+                <a href="about-author.html" class="nav-link">About Author</a>
+                <a href="read-online.html" class="nav-link active">Read Online</a>
+                <a href="buy.html" class="nav-link">Buy Now</a>
+                <a href="testimonials.html" class="nav-link">Testimonials</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reading Interface -->
+    <section class="reading-interface">
+        <div class="container">
+            <div class="reading-header">
+                <h1>Simplest Guide to Public Speaking</h1>
+                <p class="reading-subtitle">by Favour Ebi Dakoru</p>
+                <div class="reading-controls">
+                    <button class="control-btn" onclick="decreaseFontSize()">
+                        <i class="fas fa-minus"></i> A
+                    </button>
+                    <button class="control-btn" onclick="increaseFontSize()">
+                        <i class="fas fa-plus"></i> A
+                    </button>
+                    <button class="control-btn" onclick="toggleDarkMode()">
+                        <i class="fas fa-adjust"></i> Theme
+                    </button>
+                </div>
+            </div>
+
+            <div class="reading-content" id="reading-content">
+                <div class="chapter-navigation">
+                    <button class="nav-btn prev-btn" onclick="previousChapter()" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span class="chapter-info" id="chapter-info">Chapter 1 of 12</span>
+                    <button class="nav-btn next-btn" onclick="nextChapter()">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="book-content" id="book-content">
+                    <!-- Content will be loaded here by JavaScript -->
+                </div>
+
+                <div class="reading-footer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="reading-note">
+                        <i class="fas fa-info-circle"></i>
+                        This is a sample preview. <a href="buy.html">Purchase the full book</a> to access all chapters.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase CTA -->
+    <section class="purchase-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Enjoying the Preview?</h2>
+                <p>Get the complete book with all 12 chapters and bonus materials</p>
+                <a href="buy.html" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> Buy Full Book
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Simplest Guide to Public Speaking</h3>
+                    <p>Transform your communication skills with proven techniques and expert guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about-book.html">About Book</a></li>
+                        <li><a href="about-author.html">About Author</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Favour Ebi Dakoru. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/book-content.js"></script>
+</body>
+</html>
