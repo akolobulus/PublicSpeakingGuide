@@ -134,6 +134,14 @@ p {
     width: auto;
 }
 
+.nav-logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
 .nav-menu {
     display: flex;
     gap: 2rem;
@@ -471,8 +479,9 @@ p {
 .author-photo {
     width: 100%;
     max-width: 400px;
-    height: auto;
-    border-radius: 15px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
     box-shadow: var(--shadow-lg);
 }
 
