@@ -91,7 +91,7 @@ Changelog:
 - July 06, 2025. Initial setup with complete book website
 - July 07, 2025. Integrated Flutterwave payment system replacing Paystack
 - July 07, 2025. Removed PostgreSQL database and user review functionality - now using static testimonials only
-- July 07, 2025. Updated logo to "Favourebidakoru.org" across all pages and added author's professional photo with circular styling
+- July 07, 2025. Updated logo to "MR FED" across all pages and added author's professional photo with circular styling
 ```
 
 ## Technical Notes
