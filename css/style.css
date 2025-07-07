@@ -286,6 +286,12 @@ p {
     opacity: 1;
 }
 
+.book-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .book-cover {
     width: 100%;
     max-width: 350px;
@@ -502,6 +508,66 @@ p {
     height: 400px;
     object-fit: contain;
     background: transparent;
+}
+
+/* Author Contact Section */
+.author-contact-section {
+    padding: 4rem 0;
+    background: var(--gray-light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-icon {
+    background: var(--primary-color);
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.contact-details a {
+    color: var(--gray-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.contact-details a:hover {
+    color: var(--secondary-color);
+}
     box-shadow: var(--shadow-lg);
 }
 
@@ -1654,6 +1720,29 @@ p {
     .nav-logo .logo-img {
         height: 35px;
         max-width: 180px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-item {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-icon {
+        margin-bottom: 1rem;
+    }
+    
+    .book-slide img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
     }
     
     .nav-menu {
