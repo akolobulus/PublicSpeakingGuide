@@ -132,7 +132,7 @@ p {
 
 .nav-logo .logo-img {
     height: 400px;
-    width: auto;
+    width: 400;
     max-width: 400px;
     object-fit: contain;
     display: block;
