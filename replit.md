@@ -7,11 +7,12 @@ This is a static website for promoting "Simplest Guide to Public Speaking" by Fa
 ## System Architecture
 
 ### Frontend Architecture
-- **Technology**: Pure HTML5, CSS3, and vanilla JavaScript
+- **Technology**: Pure HTML5, CSS3, and vanilla JavaScript (No npm dependencies)
 - **Styling Framework**: Custom CSS with CSS Grid and Flexbox
 - **Typography**: Google Fonts (Poppins family)
 - **Icons**: Font Awesome 6.4.0
 - **Responsive Design**: Mobile-first approach with hamburger navigation
+- **Hosting**: Static files served via Python HTTP server
 
 ### Key Components
 
@@ -92,6 +93,7 @@ Changelog:
 - July 07, 2025. Integrated Flutterwave payment system replacing Paystack
 - July 07, 2025. Removed PostgreSQL database and user review functionality - now using static testimonials only
 - July 07, 2025. Updated logo to "MR FED" across all pages and added author's professional photo with circular styling
+- July 07, 2025. Removed all npm dependencies and node_modules - now runs purely on HTML, CSS, and JavaScript with Python HTTP server
 ```
 
 ## Technical Notes
