@@ -131,9 +131,9 @@ p {
 }
 
 .nav-logo .logo-img {
-    height: 75px;
+    height: 400px;
     width: auto;
-    max-width: 200px;
+    max-width: 400px;
     object-fit: contain;
     display: block;
 }
