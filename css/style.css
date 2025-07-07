@@ -130,23 +130,15 @@ p {
 }
 
 .nav-logo .logo-img {
-    height: 40px;
-    width: auto;
-}
-
-.nav-logo .logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 0;
-    letter-spacing: -0.5px;
-}
-
-.nav-logo .logo-img {
     height: 45px;
     width: auto;
     max-width: 200px;
     object-fit: contain;
+    display: block;
+}
+
+.nav-logo .logo-text {
+    display: none;
 }
 
 .nav-menu {
@@ -487,8 +479,8 @@ p {
     width: 100%;
     max-width: 400px;
     height: 400px;
-    border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
+    background: transparent;
     box-shadow: var(--shadow-lg);
 }
 
@@ -1383,7 +1375,7 @@ p {
     }
     
     .nav-logo .logo-text {
-        font-size: 2rem;
+        display: none;
     }
     
     .nav-logo .logo-img {
@@ -1426,7 +1418,7 @@ p {
     }
     
     .nav-logo .logo-text {
-        font-size: 1.8rem;
+        display: none;
     }
     
     .nav-logo .logo-img {
