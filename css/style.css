@@ -32,6 +32,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 /* Typography */
@@ -402,12 +403,58 @@ p {
     align-items: start;
 }
 
-.book-cover-large {
+.book-image {
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
+}
+
+.book-cover-large {
+    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 15px;
     box-shadow: var(--shadow-lg);
+    display: block;
+}
+
+.book-details {
+    width: 100%;
+    min-width: 0; /* Prevent overflow */
+}
+
+.book-details h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.book-subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.book-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    padding: 1rem;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+}
+
+.book-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .book-subtitle {
@@ -818,6 +865,17 @@ p {
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
     align-items: start;
+}
+
+.book-showcase {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.purchase-details {
+    width: 100%;
+    min-width: 0; /* Prevent overflow */
 }
 
 .book-cover-purchase {
@@ -1793,8 +1851,140 @@ p {
         gap: 2rem;
     }
     
+    /* Critical Mobile Fixes for Book Content */
+    .book-content,
+    .author-content,
+    .purchase-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center;
+    }
+    
+    .book-image,
+    .author-image,
+    .book-showcase {
+        margin: 0 auto 2rem auto;
+        max-width: 100%;
+    }
+    
+    .book-details,
+    .author-details,
+    .purchase-details {
+        text-align: left;
+        width: 100%;
+        min-width: 0;
+    }
+    
+    .book-details h2 {
+        font-size: 1.8rem !important;
+        text-align: center;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .book-subtitle {
+        font-size: 1rem !important;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .book-info {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .info-item {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    .book-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .book-slideshow {
+        min-height: 250px;
+    }
+    
+    .book-cover,
+    .book-cover-large,
+    .book-cover-purchase {
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+    }
+    
+    .author-photo {
+        max-width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+    
+    .features-grid,
+    .testimonials-grid,
+    .learning-grid,
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .pricing-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .book-details h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .book-cover,
+    .book-cover-large,
+    .book-cover-purchase {
+        max-width: 200px;
+    }
+    
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .author-photo {
+        max-width: 200px;
+        height: 200px;
+    }
+    
+    .book-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .hero-buttons {
