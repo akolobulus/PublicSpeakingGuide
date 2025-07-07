@@ -84,7 +84,7 @@
                                     <li><i class="fas fa-check"></i> Lifetime access</li>
                                 </ul>
                             </div>
-                            <button class="btn btn-primary purchase-btn" onclick="redirectToPaystack('digital')">
+                            <button class="btn btn-primary purchase-btn" onclick="initiateFlutterwavePayment('digital')">
                                 <i class="fas fa-shopping-cart"></i> Buy Digital Edition
                             </button>
                         </div>
@@ -107,7 +107,7 @@
                                     <li><i class="fas fa-check"></i> Author's signature</li>
                                 </ul>
                             </div>
-                            <button class="btn btn-secondary purchase-btn" onclick="redirectToPaystack('print')">
+                            <button class="btn btn-secondary purchase-btn" onclick="initiateFlutterwavePayment('print')">
                                 <i class="fas fa-book"></i> Buy Print Edition
                             </button>
                         </div>
@@ -118,7 +118,7 @@
                             <i class="fas fa-shield-alt"></i>
                             <div>
                                 <h4>Secure Payment</h4>
-                                <p>Your payment is processed securely through Paystack</p>
+                                <p>Your payment is processed securely through Flutterwave</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -253,31 +253,278 @@
         </div>
     </footer>
 
+    <!-- Customer Info Modal -->
+    <div id="customerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Purchase Information</h2>
+                <span class="close" onclick="closeCustomerModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="customerForm">
+                    <p>Please provide your information to complete the purchase:</p>
+                    
+                    <div class="form-group">
+                        <label for="customerName">Full Name *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email Address *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number *</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerCountry">Country *</label>
+                        <select id="customerCountry" name="customerCountry" required>
+                            <option value="">Select Country</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="GH">Ghana</option>
+                            <option value="KE">Kenya</option>
+                            <option value="ZA">South Africa</option>
+                            <option value="US">United States</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="CA">Canada</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="purchase-summary" id="purchaseSummary">
+                        <!-- Purchase details will be populated here -->
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-credit-card"></i> Proceed to Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <!-- Flutterwave Integration -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script>
-        // Paystack Integration
-        function redirectToPaystack(edition) {
-            let paystackUrl;
+        // Global variables for payment
+        let selectedEdition = '';
+        let customerData = {};
+        
+        // Initialize customer modal functionality
+        function initiateFlutterwavePayment(edition) {
+            selectedEdition = edition;
             
+            // Show customer info modal first
+            openCustomerModal(edition);
+        }
+        
+        // Open customer info modal
+        function openCustomerModal(edition) {
+            const modal = document.getElementById('customerModal');
+            const summary = document.getElementById('purchaseSummary');
+            
+            // Populate purchase summary
+            let price, title, description;
             if (edition === 'digital') {
-                paystackUrl = 'https://paystack.com/pay/simplest-guide-digital';
-            } else if (edition === 'print') {
-                paystackUrl = 'https://paystack.com/pay/simplest-guide-print';
+                price = '₦5,000';
+                title = 'Digital Edition';
+                description = 'PDF + EPUB formats with bonus materials';
+            } else {
+                price = '₦8,000';
+                title = 'Print Edition';
+                description = 'Physical book + Digital copy with author\'s signature';
             }
             
-            // Show loading state
-            const button = event.target;
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            button.disabled = true;
+            summary.innerHTML = `
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <h4>Purchase Summary</h4>
+                    <div style="display: flex; justify-content: space-between; margin: 0.5rem 0;">
+                        <span>Simplest Guide to Public Speaking - ${title}</span>
+                        <strong>${price}</strong>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">${description}</p>
+                </div>
+            `;
             
-            // Simulate redirect delay
-            setTimeout(() => {
-                window.open(paystackUrl, '_blank');
-                button.innerHTML = originalText;
-                button.disabled = false;
-            }, 1000);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
+        
+        // Close customer modal
+        function closeCustomerModal() {
+            const modal = document.getElementById('customerModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            document.getElementById('customerForm').reset();
+        }
+        
+        // Handle customer form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const customerForm = document.getElementById('customerForm');
+            if (customerForm) {
+                customerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Collect customer data
+                    customerData = {
+                        name: document.getElementById('customerName').value,
+                        email: document.getElementById('customerEmail').value,
+                        phone: document.getElementById('customerPhone').value,
+                        country: document.getElementById('customerCountry').value
+                    };
+                    
+                    // Close customer modal
+                    closeCustomerModal();
+                    
+                    // Process payment
+                    processFlutterwavePayment();
+                });
+            }
+        });
+        
+        // Process Flutterwave payment with customer data
+        function processFlutterwavePayment() {
+            // Payment configuration
+            let paymentConfig;
+            
+            if (selectedEdition === 'digital') {
+                paymentConfig = {
+                    public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X", // Replace with your actual Flutterwave public key
+                    tx_ref: "digital_book_" + Date.now(),
+                    amount: 5000,
+                    currency: "NGN",
+                    payment_options: "card,mobilemoney,ussd",
+                    customer: {
+                        email: customerData.email,
+                        phone_number: customerData.phone,
+                        name: customerData.name,
+                    },
+                    customizations: {
+                        title: "Simplest Guide to Public Speaking - Digital Edition",
+                        description: "Digital copy (PDF + EPUB) with bonus materials",
+                        logo: "https://via.placeholder.com/150x50/FFB400/001F54?text=LOGO",
+                    },
+                    meta: {
+                        customer_name: customerData.name,
+                        customer_country: customerData.country,
+                        book_edition: "digital"
+                    }
+                };
+            } else if (selectedEdition === 'print') {
+                paymentConfig = {
+                    public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X", // Replace with your actual Flutterwave public key
+                    tx_ref: "print_book_" + Date.now(),
+                    amount: 8000,
+                    currency: "NGN",
+                    payment_options: "card,mobilemoney,ussd",
+                    customer: {
+                        email: customerData.email,
+                        phone_number: customerData.phone,
+                        name: customerData.name,
+                    },
+                    customizations: {
+                        title: "Simplest Guide to Public Speaking - Print Edition",
+                        description: "Physical book + Digital copy with author's signature",
+                        logo: "https://via.placeholder.com/150x50/FFB400/001F54?text=LOGO",
+                    },
+                    meta: {
+                        customer_name: customerData.name,
+                        customer_country: customerData.country,
+                        book_edition: "print"
+                    }
+                };
+            }
+            
+            // Add callback functions
+            paymentConfig.callback = function (data) {
+                console.log("Payment successful:", data);
+                
+                // Show success message
+                if (window.showNotification) {
+                    window.showNotification('Payment successful! You will receive your book shortly.', 'success');
+                } else {
+                    alert('Payment successful! You will receive your book shortly.');
+                }
+                
+                // Store purchase info for confirmation
+                localStorage.setItem('lastPurchase', JSON.stringify({
+                    ...customerData,
+                    edition: selectedEdition,
+                    transactionRef: data.tx_ref,
+                    amount: data.amount,
+                    timestamp: new Date().toISOString()
+                }));
+                
+                // In a real implementation, you would:
+                // 1. Verify the payment on your server using the transaction reference
+                // 2. Send the digital book to the customer's email
+                // 3. Update your database with the purchase record
+                // 4. Send confirmation email with download links
+                // 5. For print books, initiate shipping process
+                
+                // Redirect to a thank you page
+                setTimeout(() => {
+                    window.location.href = 'index.html?payment=success&tx_ref=' + data.tx_ref;
+                }, 2000);
+            };
+            
+            paymentConfig.onclose = function() {
+                console.log("Payment cancelled by user");
+                
+                if (window.showNotification) {
+                    window.showNotification('Payment cancelled. You can try again anytime.', 'error');
+                }
+            };
+            
+            // Launch Flutterwave payment modal
+            FlutterwaveCheckout(paymentConfig);
+        }
+        
+        // Handle successful payment redirect
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('payment') === 'success') {
+                // Show success message on page load
+                setTimeout(() => {
+                    if (window.showNotification) {
+                        window.showNotification('Welcome back! Your payment was processed successfully.', 'success');
+                    }
+                    
+                    // Show purchase confirmation if available
+                    const lastPurchase = localStorage.getItem('lastPurchase');
+                    if (lastPurchase) {
+                        const purchase = JSON.parse(lastPurchase);
+                        console.log('Purchase details:', purchase);
+                        // Here you could show a download modal or confirmation details
+                    }
+                }, 1000);
+            }
+        });
+        
+        // Close modal when clicking outside
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('customerModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeCustomerModal();
+                    }
+                });
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    closeCustomerModal();
+                }
+            });
+        });
     </script>
 </body>
 </html>

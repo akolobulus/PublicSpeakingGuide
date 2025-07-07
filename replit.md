@@ -62,7 +62,7 @@ This is a static website for promoting "Simplest Guide to Public Speaking" by Fa
 - **Placeholder Images**: Via.placeholder.com for temporary images
 
 ### Third-party Integrations
-- **Payment Processing**: Links to external purchase platforms
+- **Payment Processing**: Flutterwave integration for secure payments (digital: ₦5,000, print: ₦8,000)
 - **Social Media**: Integration points for testimonials and sharing
 - **Analytics**: Ready for Google Analytics integration
 
@@ -88,7 +88,8 @@ Preferred communication style: Simple, everyday language.
 
 ```
 Changelog:
-- July 06, 2025. Initial setup
+- July 06, 2025. Initial setup with complete book website
+- July 07, 2025. Integrated Flutterwave payment system replacing Paystack
 ```
 
 ## Technical Notes
