@@ -265,6 +265,27 @@ p {
     align-items: center;
 }
 
+.book-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.book-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.book-slide.active {
+    opacity: 1;
+}
+
 .book-cover {
     width: 100%;
     max-width: 350px;
