@@ -1,67 +1,60 @@
 // Book Slideshow functionality
-class BookSlideshow {
-    constructor(containerId) {
-        this.container = document.querySelector(containerId);
-        if (!this.container) return;
-        
-        this.slides = this.container.querySelectorAll('.book-slide');
-        this.currentSlide = 0;
-        this.intervalId = null;
-        
-        this.init();
-    }
+function initializeBookSlideshows() {
+    const slideshows = document.querySelectorAll('.book-slideshow');
     
-    init() {
-        if (this.slides.length <= 1) return;
+    slideshows.forEach((slideshow, slideshowIndex) => {
+        const slides = slideshow.querySelectorAll('.book-slide');
+        if (slides.length <= 1) return;
+        
+        let currentSlide = 0;
+        let intervalId = null;
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            currentSlide = index;
+        }
+        
+        // Function to show next slide
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+        
+        // Function to start slideshow
+        function startSlideshow() {
+            if (intervalId) clearInterval(intervalId);
+            intervalId = setInterval(nextSlide, 4000);
+        }
+        
+        // Function to pause slideshow
+        function pauseSlideshow() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+        
+        // Ensure first slide is visible
+        showSlide(0);
         
         // Start the slideshow
-        this.startSlideshow();
+        startSlideshow();
         
-        // Pause on hover
-        this.container.addEventListener('mouseenter', () => this.pauseSlideshow());
-        this.container.addEventListener('mouseleave', () => this.startSlideshow());
-    }
-    
-    showSlide(index) {
-        // Remove active class from all slides
-        this.slides.forEach(slide => slide.classList.remove('active'));
-        
-        // Add active class to current slide
-        this.slides[index].classList.add('active');
-        
-        this.currentSlide = index;
-    }
-    
-    nextSlide() {
-        const nextIndex = (this.currentSlide + 1) % this.slides.length;
-        this.showSlide(nextIndex);
-    }
-    
-    startSlideshow() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId);
-        }
-        
-        this.intervalId = setInterval(() => {
-            this.nextSlide();
-        }, 4000); // Change slide every 4 seconds
-    }
-    
-    pauseSlideshow() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId);
-            this.intervalId = null;
-        }
-    }
+        // Add hover events
+        slideshow.addEventListener('mouseenter', pauseSlideshow);
+        slideshow.addEventListener('mouseleave', startSlideshow);
+    });
 }
 
 // Initialize slideshows when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all book slideshows on the page
-    const slideshows = document.querySelectorAll('.book-slideshow');
-    slideshows.forEach((slideshow, index) => {
-        // Create unique identifier for each slideshow
-        slideshow.setAttribute('data-slideshow-id', `slideshow-${index}`);
-        new BookSlideshow(`[data-slideshow-id="slideshow-${index}"]`);
-    });
+    console.log('Initializing book slideshows...');
+    initializeBookSlideshows();
+    console.log('Book slideshows initialized successfully');
 });

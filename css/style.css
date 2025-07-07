@@ -268,7 +268,8 @@ p {
 .book-slideshow {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
+    min-height: 400px;
     overflow: hidden;
 }
 
@@ -277,13 +278,15 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    z-index: 1;
 }
 
 .book-slide.active {
     opacity: 1;
+    z-index: 2;
 }
 
 .book-slide img {
