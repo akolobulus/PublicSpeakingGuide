@@ -93,6 +93,7 @@ Changelog:
 - July 07, 2025. Integrated Flutterwave payment system replacing Paystack
 - July 07, 2025. Removed PostgreSQL database and user review functionality - now using static testimonials only
 - July 07, 2025. Updated logo to "MR FED" across all pages and added author's professional photo with circular styling
+- July 07, 2025. Replaced all header logos with "Favour Dakoru Speaking Academy" logo image across all pages with responsive sizing
 - July 07, 2025. Removed all npm dependencies and node_modules - now runs purely on HTML, CSS, and JavaScript with Python HTTP server
 - July 07, 2025. Updated all testimonial names to Nigerian names for better cultural authenticity
 ```
