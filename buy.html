@@ -395,11 +395,11 @@
             
             if (selectedEdition === 'digital') {
                 paymentConfig = {
-                    public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X", // Replace with your actual Flutterwave public key
+                    public_key: "FLWPUBK_TEST-68f8b6b6c0ada267982888334ff3725d-X",
                     tx_ref: "digital_book_" + Date.now(),
                     amount: 5000,
                     currency: "NGN",
-                    payment_options: "card,mobilemoney,ussd",
+                    payment_options: "card,mobilemoney,ussd,banktransfer,qr,mpesa,ghana_mobile_money,rwanda_mobile_money,zambia_mobile_money,uganda_mobile_money",
                     customer: {
                         email: customerData.email,
                         phone_number: customerData.phone,
@@ -418,11 +418,11 @@
                 };
             } else if (selectedEdition === 'print') {
                 paymentConfig = {
-                    public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X", // Replace with your actual Flutterwave public key
+                    public_key: "FLWPUBK_TEST-68f8b6b6c0ada267982888334ff3725d-X",
                     tx_ref: "print_book_" + Date.now(),
                     amount: 8000,
                     currency: "NGN",
-                    payment_options: "card,mobilemoney,ussd",
+                    payment_options: "card,mobilemoney,ussd,banktransfer,qr,mpesa,ghana_mobile_money,rwanda_mobile_money,zambia_mobile_money,uganda_mobile_money",
                     customer: {
                         email: customerData.email,
                         phone_number: customerData.phone,
