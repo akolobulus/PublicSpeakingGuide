@@ -40,73 +40,28 @@
     <section class="page-header">
         <div class="container">
             <h1>Customer Reviews</h1>
-            <p>Share your experience and read what others are saying about the book</p>
+            <p>Find authentic testimonials from our readers</p>
         </div>
     </section>
 
-    <!-- Add Review Section -->
-    <section class="add-review-section">
+    <!-- Redirect to Testimonials -->
+    <section class="redirect-section">
         <div class="container">
-            <div class="review-form-container">
-                <h2>Share Your Review</h2>
-                <p>Help others by sharing your experience with "Simplest Guide to Public Speaking"</p>
-                
-                <form id="reviewForm" class="review-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="reviewerName">Full Name *</label>
-                            <input type="text" id="reviewerName" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewerEmail">Email Address *</label>
-                            <input type="email" id="reviewerEmail" name="email" required>
-                        </div>
+            <div class="redirect-container">
+                <div class="redirect-content">
+                    <i class="fas fa-comments"></i>
+                    <h2>Customer Reviews</h2>
+                    <p>We've moved all customer reviews and testimonials to our dedicated testimonials page. You can read authentic feedback from our readers there.</p>
+                    <div class="redirect-actions">
+                        <a href="testimonials.html" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            View Testimonials
+                        </a>
+                        <a href="contact.html" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            Contact Us
+                        </a>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="rating">Rating *</label>
-                        <div class="star-rating">
-                            <input type="radio" id="star5" name="rating" value="5">
-                            <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star4" name="rating" value="4">
-                            <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star3" name="rating" value="3">
-                            <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star2" name="rating" value="2">
-                            <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star1" name="rating" value="1">
-                            <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reviewTitle">Review Title *</label>
-                        <input type="text" id="reviewTitle" name="title" placeholder="Summarize your experience" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reviewContent">Your Review *</label>
-                        <textarea id="reviewContent" name="content" rows="6" placeholder="Share your detailed experience with the book..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-review-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Submit Review
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Display Section -->
-    <section class="reviews-display-section">
-        <div class="container">
-            <h2>What Our Readers Say</h2>
-            <div id="reviewsGrid" class="reviews-grid">
-                <!-- Reviews will be loaded here -->
-                <div class="loading-reviews">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading reviews...</p>
                 </div>
             </div>
         </div>

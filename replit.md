@@ -90,6 +90,7 @@ Preferred communication style: Simple, everyday language.
 Changelog:
 - July 06, 2025. Initial setup with complete book website
 - July 07, 2025. Integrated Flutterwave payment system replacing Paystack
+- July 07, 2025. Removed PostgreSQL database and user review functionality - now using static testimonials only
 ```
 
 ## Technical Notes
