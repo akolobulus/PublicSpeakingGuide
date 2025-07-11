@@ -105,6 +105,10 @@ Changelog:
 - July 11, 2025. Added FED Public Speaking Network logo and community features section
 - July 11, 2025. Integrated Google Analytics (G-PDQ0MF98L3) across all pages with comprehensive event tracking
 - July 11, 2025. Added automatic tracking for purchases, community joins, form submissions, and external links
+- July 11, 2025. Removed frame styling from author photo for cleaner appearance
+- July 11, 2025. Increased logo size from 45px to 60px for better visibility
+- July 11, 2025. Updated all contact forms and email references to officialarikpa@gmail.com
+- July 11, 2025. Updated social media links to correct author handles (Facebook: favourdakoru, Instagram: favourdakoru)
 ```
 
 ## Technical Notes

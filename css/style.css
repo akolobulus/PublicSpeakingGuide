@@ -131,9 +131,9 @@ p {
 }
 
 .nav-logo .logo-img {
-    height: 45px;
+    height: 60px;
     width: auto;
-    max-width: 400px;
+    max-width: 500px;
     object-fit: contain;
     display: block;
 }
@@ -550,6 +550,15 @@ p {
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
     align-items: start;
+}
+
+.author-photo-simple {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .author-photo {
