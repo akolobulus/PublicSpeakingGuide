@@ -602,7 +602,7 @@ p {
                     var(--secondary-color) 40%, 
                     transparent 50%, 
                     transparent 100%) border-box;
-    animation: neonRotate 6s linear infinite;
+    animation: neonRotate 8s ease-in-out infinite 1s;
     z-index: 1;
 }
 
@@ -621,6 +621,10 @@ p {
 @keyframes neonRotate {
     0% {
         transform: rotate(0deg);
+        filter: drop-shadow(0 0 6px var(--primary-color)) 
+                drop-shadow(0 0 10px var(--primary-color));
+    }
+    12.5% {
         filter: drop-shadow(0 0 8px var(--primary-color)) 
                 drop-shadow(0 0 12px var(--primary-color));
     }
@@ -628,8 +632,16 @@ p {
         filter: drop-shadow(0 0 8px var(--secondary-color)) 
                 drop-shadow(0 0 12px var(--secondary-color));
     }
+    37.5% {
+        filter: drop-shadow(0 0 6px var(--secondary-color)) 
+                drop-shadow(0 0 10px var(--secondary-color));
+    }
     50% {
         transform: rotate(180deg);
+        filter: drop-shadow(0 0 6px var(--primary-color)) 
+                drop-shadow(0 0 10px var(--primary-color));
+    }
+    62.5% {
         filter: drop-shadow(0 0 8px var(--primary-color)) 
                 drop-shadow(0 0 12px var(--primary-color));
     }
@@ -637,10 +649,14 @@ p {
         filter: drop-shadow(0 0 8px var(--secondary-color)) 
                 drop-shadow(0 0 12px var(--secondary-color));
     }
+    87.5% {
+        filter: drop-shadow(0 0 6px var(--secondary-color)) 
+                drop-shadow(0 0 10px var(--secondary-color));
+    }
     100% {
         transform: rotate(360deg);
-        filter: drop-shadow(0 0 8px var(--primary-color)) 
-                drop-shadow(0 0 12px var(--primary-color));
+        filter: drop-shadow(0 0 6px var(--primary-color)) 
+                drop-shadow(0 0 10px var(--primary-color));
     }
 }
 
