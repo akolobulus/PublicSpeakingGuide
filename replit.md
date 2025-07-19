@@ -109,6 +109,9 @@ Changelog:
 - July 11, 2025. Increased logo size from 45px to 60px for better visibility
 - July 11, 2025. Updated all contact forms and email references to officialarikpa@gmail.com
 - July 11, 2025. Updated social media links to correct author handles (Facebook: favourdakoru, Instagram: favourdakoru)
+- July 19, 2025. Updated About Author page with enhanced professional description including Training and Workshops section
+- July 19, 2025. Added new featured testimonial from Abashiya Blessed Deynum (Babcock University Student)
+- July 19, 2025. Added Instagram handle @fedpsnetwork to FED Public Speaking Network community page
 ```
 
 ## Technical Notes
