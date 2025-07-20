@@ -117,8 +117,9 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 10000;
     padding: 1rem 0;
+    isolation: isolate;
 }
 
 .nav-container {
@@ -583,6 +584,8 @@ p {
     text-align: center;
     padding: 15px;
     isolation: isolate;
+    will-change: auto;
+    transform: translateZ(0);
 }
 
 .author-image::before {
@@ -614,21 +617,23 @@ p {
                     var(--secondary-color) 40%, 
                     transparent 50%, 
                     transparent 100%);
-    animation: neonRotate 8s ease-in-out infinite 1s;
+    animation: neonRotate 8s linear infinite 1s;
     z-index: 0;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     padding: 3px;
+    will-change: transform;
+    contain: layout style paint;
 }
 
 @keyframes neonRotate {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translateZ(0);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg) translateZ(0);
     }
 }
 
@@ -1867,7 +1872,9 @@ p {
     .hamburger {
         display: flex;
         position: relative;
-        z-index: 9999;
+        z-index: 99999;
+        isolation: isolate;
+        will-change: auto;
     }
     
     .nav-logo .logo-img {
@@ -1934,6 +1941,25 @@ p {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
         text-align: center;
+    }
+    
+    /* Mobile fixes for author image */
+    .author-image {
+        padding: 10px;
+        transform: translateZ(0);
+        isolation: isolate;
+    }
+    
+    .author-photo-simple {
+        max-width: 300px;
+        height: 300px;
+    }
+    
+    /* Ensure navigation elements stay fixed */
+    .nav-menu {
+        z-index: 100000 !important;
+        isolation: isolate;
+        will-change: auto;
     }
     
     .book-image,
