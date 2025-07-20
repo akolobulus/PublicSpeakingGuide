@@ -112,7 +112,7 @@ Changelog:
 - July 19, 2025. Updated About Author page with enhanced professional description including Training and Workshops section
 - July 19, 2025. Added new featured testimonial from Abashiya Blessed Deynum (Babcock University Student)
 - July 19, 2025. Added Instagram handle @fedpsnetwork to FED Public Speaking Network community page
-- July 19, 2025. Added static glow effect to author photo with 0.8 second animation cycle using site colors
+- July 19, 2025. Added mild static glow effect to author photo with 1.5 second animation cycle using site colors
 ```
 
 ## Technical Notes
