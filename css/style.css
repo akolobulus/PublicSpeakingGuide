@@ -582,6 +582,7 @@ p {
     display: inline-block;
     text-align: center;
     padding: 15px;
+    isolation: isolate;
 }
 
 .author-image::before {
@@ -592,71 +593,42 @@ p {
     right: 0;
     bottom: 0;
     border-radius: 25px;
-    border: 2px solid transparent;
-    background: linear-gradient(var(--white), var(--white)) padding-box,
-                conic-gradient(from 0deg, 
-                    transparent 0%, 
-                    var(--primary-color) 10%, 
-                    transparent 20%, 
-                    transparent 30%, 
-                    var(--secondary-color) 40%, 
-                    transparent 50%, 
-                    transparent 100%) border-box;
-    animation: neonRotate 8s ease-in-out infinite 1s;
+    border: 2px solid rgba(0,0,0,0.1);
+    background: var(--white);
     z-index: 1;
 }
 
 .author-image::after {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    background: var(--white);
-    border-radius: 23px;
-    z-index: 1;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 27px;
+    background: conic-gradient(from 0deg, 
+                    transparent 0%, 
+                    var(--primary-color) 10%, 
+                    transparent 20%, 
+                    transparent 30%, 
+                    var(--secondary-color) 40%, 
+                    transparent 50%, 
+                    transparent 100%);
+    animation: neonRotate 8s ease-in-out infinite 1s;
+    z-index: 0;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    padding: 3px;
 }
 
 @keyframes neonRotate {
     0% {
         transform: rotate(0deg);
-        filter: drop-shadow(0 0 6px var(--primary-color)) 
-                drop-shadow(0 0 10px var(--primary-color));
-    }
-    12.5% {
-        filter: drop-shadow(0 0 8px var(--primary-color)) 
-                drop-shadow(0 0 12px var(--primary-color));
-    }
-    25% {
-        filter: drop-shadow(0 0 8px var(--secondary-color)) 
-                drop-shadow(0 0 12px var(--secondary-color));
-    }
-    37.5% {
-        filter: drop-shadow(0 0 6px var(--secondary-color)) 
-                drop-shadow(0 0 10px var(--secondary-color));
-    }
-    50% {
-        transform: rotate(180deg);
-        filter: drop-shadow(0 0 6px var(--primary-color)) 
-                drop-shadow(0 0 10px var(--primary-color));
-    }
-    62.5% {
-        filter: drop-shadow(0 0 8px var(--primary-color)) 
-                drop-shadow(0 0 12px var(--primary-color));
-    }
-    75% {
-        filter: drop-shadow(0 0 8px var(--secondary-color)) 
-                drop-shadow(0 0 12px var(--secondary-color));
-    }
-    87.5% {
-        filter: drop-shadow(0 0 6px var(--secondary-color)) 
-                drop-shadow(0 0 10px var(--secondary-color));
     }
     100% {
         transform: rotate(360deg);
-        filter: drop-shadow(0 0 6px var(--primary-color)) 
-                drop-shadow(0 0 10px var(--primary-color));
     }
 }
 
@@ -1894,6 +1866,8 @@ p {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 9999;
     }
     
     .nav-logo .logo-img {
